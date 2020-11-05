@@ -1,0 +1,8 @@
+# global owners
+*                       @hakobpogh
+
+# react owners
+src/**/*.tsx?           @VahanSargsyan @hospogh
+
+# scss owners
+src/**/*.s?css          @hospogh
