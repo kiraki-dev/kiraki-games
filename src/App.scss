@@ -1,5 +1,7 @@
 .App {
-  --unit-size: 10px;
+  --unit-size: 4px;
+  --block-size: calc(var(--unit-size) * 8);
+  --double-block-size: calc(var(--block-size) * 2);
 }
 
 .App {
