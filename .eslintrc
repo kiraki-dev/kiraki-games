@@ -397,6 +397,9 @@
     "yield-star-spacing": ["error", "after"]
   },
   "reportUnusedDisableDirectives": true,
+  "ignorePatterns": [
+    "build/*"
+  ],
   "overrides": [
     {
       "files": ["**/*.test.ts", "**/*.test.tsx"],
@@ -610,6 +613,16 @@
         "@typescript-eslint/typedef": ["error"],
         "@typescript-eslint/unbound-method": ["error"],
         "@typescript-eslint/unified-signatures": "error"
+      }
+    },
+    {
+      "files": ["src/**/*.ts", "src/**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "rules": {
+        // these rules are not supported by react's eslint
+        "@typescript-eslint/no-unnecessary-type-constraint": "off",
+        "@typescript-eslint/space-infix-ops": "off",
+        "space-infix-ops": ["error"]
       }
     }
   ]
