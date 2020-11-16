@@ -1,0 +1,20 @@
+.Explosion {
+  width: var(--double-block-size);
+  height: var(--double-block-size);
+  background: center / contain;
+  animation: explosion 2s;
+}
+
+@keyframes explosion {
+  0% {
+    background-image: url("../../../assets/images/explosions/explosion_1.svg");
+  }
+
+  50% {
+    background-image: url("../../../assets/images/explosions/explosion_2.svg");
+  }
+
+  100% {
+    background-image: url("../../../assets/images/explosions/explosion_3.svg");
+  }
+}
