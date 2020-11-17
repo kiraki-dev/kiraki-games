@@ -1,32 +1,19 @@
-import React, { CSSProperties, FC, PropsWithChildren } from 'react';
-import { GridObject, GridObjectPosition, GridObjectType } from './Grid.state';
-import Gerb from '../Gerb';
-import Explosion from '../explosions';
-import { GerbProps } from '../Gerb/Gerb';
+import { createContext, CSSProperties, useContext } from 'react';
 import { numberToCssBlock } from '../../utils/html-helpers';
-import styles from './Grid.module.scss';
+import { GridObject, GridObjectPosition, GridObjectState } from '../../viewModels/GridObject';
 
-type ObjectPropType = GerbProps | undefined;
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const GridObjectContext = createContext<GridObject | null>(null);
 
-const GRID_OBJECT_COMPONENTS: Record<GridObjectType, FC<ObjectPropType>> = {
-  gerb: Gerb,
-  explosion: Explosion
+export const useGridObjectState = <T extends GridObjectState>(): [T, CSSProperties] => {
+  const gridObject = useContext(GridObjectContext);
+
+  if (!gridObject) {
+    throw new Error('Missing provider for GridObject');
+  }
+
+  return [gridObject.state as T, getPositionStyles(gridObject.position)];
 };
-
-const GridObjectView: FC<GridObject> = (gridObject: GridObject) => {
-  const ObjectComponent = GRID_OBJECT_COMPONENTS[gridObject.type];
-
-  const { props = {} as PropsWithChildren<undefined> } = gridObject;
-  const positionStyles = getPositionStyles(gridObject.position);
-
-  return (
-    <div className={styles.ObjectView} style={positionStyles}>
-      <ObjectComponent {...props} />
-    </div>
-  );
-};
-
-export default GridObjectView;
 
 const getPositionStyles = (location: GridObjectPosition): CSSProperties => {
   const translate = `translate(${numberToCssBlock(location.x)}, ${numberToCssBlock(location.y)})`;

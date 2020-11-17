@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styles from './Grid.module.scss';
 import { GridState } from './Grid.state';
-import GridObjectView from './Grid.helpers';
+import GridObjectView from './GridObjectView';
 
 const GRID_SIZE = 32;
 const GRID_SIZE_VAR_NAME = '--grid-size';
