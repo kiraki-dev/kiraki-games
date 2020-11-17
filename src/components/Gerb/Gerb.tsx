@@ -2,16 +2,15 @@ import React, { FC } from 'react';
 import styles from './Gerb.module.scss';
 import standingStateImg from '../../assets/images/other/gerb.svg';
 import destroyedStateImg from '../../assets/images/other/gerb_destroyed.svg';
+import { useGridObjectState } from '../Grid/Grid.helpers';
+import { GerbState } from '../../viewModels/GridObject';
 
-export interface GerbProps {
-  isDestroyed: boolean;
-}
-
-const Gerb: FC<GerbProps> = (props: Readonly<GerbProps>) => {
-  const gerbImg = props.isDestroyed ? destroyedStateImg : standingStateImg;
+const Gerb: FC = () => {
+  const [state, inlineStyles] = useGridObjectState<GerbState>();
+  const gerbImg = state.isDestroyed ? destroyedStateImg : standingStateImg;
 
   return (
-    <img src={gerbImg} className={styles.Gerb} alt="" />
+    <img className={styles.Gerb} style={inlineStyles} src={gerbImg} alt="" />
   );
 };
 
