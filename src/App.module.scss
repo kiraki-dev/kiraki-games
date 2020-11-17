@@ -1,0 +1,7 @@
+.App {
+  --unit-size: 2px;
+  --block-size: calc(var(--unit-size) * 8);
+  --double-block-size: calc(var(--block-size) * 2);
+
+  height: 100%;
+}

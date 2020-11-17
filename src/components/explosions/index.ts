@@ -1,3 +1,3 @@
-import Explosion from './Explosion/Explosion';
+import Explosion from './Explosion';
 
 export default Explosion;
