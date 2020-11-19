@@ -1,3 +1,4 @@
 import Explosion from './Explosion';
+import TankExplosion from './TankExplosion';
 
-export default Explosion;
+export { TankExplosion, Explosion };

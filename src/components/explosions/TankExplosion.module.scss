@@ -1,0 +1,16 @@
+.TankExplosion {
+  width: var(--double-block-size);
+  height: var(--double-block-size);
+  background: center / contain;
+  animation: tankExplosion 2s;
+}
+
+@keyframes tankExplosion {
+  0% {
+    background-image: url("../../assets/images/explosions/tank_explosion_1.svg");
+  }
+
+  100% {
+    background-image: url("../../assets/images/explosions/tank_explosion_2.svg");
+  }
+}
