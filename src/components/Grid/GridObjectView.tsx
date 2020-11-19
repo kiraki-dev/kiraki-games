@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Gerb from '../Gerb';
-import Explosion from '../explosions';
+import Explosion from '../explosions/Explosion';
 import { GridObjectContext } from './Grid.helpers';
 import { GridObject, GridObjectType } from '../../viewModels/GridObject';
 
