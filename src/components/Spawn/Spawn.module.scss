@@ -1,0 +1,36 @@
+.Spawn {
+  width: var(--double-block-size);
+  height: var(--double-block-size);
+  background: center / contain;
+  animation: spawning 1s 3;
+}
+
+@keyframes spawning {
+  0% {
+    background-image: url("../../assets/images/other/spawn_animation_p1.svg");
+  }
+
+  17% {
+    background-image: url("../../assets/images/other/spawn_animation_p2.svg");
+  }
+
+  33% {
+    background-image: url("../../assets/images/other/spawn_animation_p3.svg");
+  }
+
+  50% {
+    background-image: url("../../assets/images/other/spawn_animation_p4.svg");
+  }
+
+  67% {
+    background-image: url("../../assets/images/other/spawn_animation_p3.svg");
+  }
+
+  83% {
+    background-image: url("../../assets/images/other/spawn_animation_p2.svg");
+  }
+
+  100% {
+    background-image: url("../../assets/images/other/spawn_animation_p1.svg");
+  }
+}
