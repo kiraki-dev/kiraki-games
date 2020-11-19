@@ -3,5 +3,11 @@
   --block-size: calc(var(--unit-size) * 8);
   --double-block-size: calc(var(--block-size) * 2);
 
+  --bg-unit-size: var(--unit-size);
+  --bg-block-size: calc(var(--bg-unit-size) * 8);
+  --bg-double-block-size: calc(var(--bg-block-size) * 2);
+
+  --bg-sprite-size: calc(400 * var(--bg-unit-size));
+
   height: 100%;
 }
