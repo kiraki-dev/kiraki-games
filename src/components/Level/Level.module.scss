@@ -1,0 +1,25 @@
+.Level {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: var(--double-block-size);
+    width: var(--double-block-size);
+  }
+
+  div {
+    display: flex;
+    justify-content: flex-end;
+    width: var(--double-block-size);
+    height: var(--block-size);
+
+    span {
+      height: var(--block-size);
+      width: var(--block-size);
+      font-size: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
