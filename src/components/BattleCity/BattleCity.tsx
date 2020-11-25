@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import produce from 'immer';
 import Grid from '../Grid/Grid';
 import { BattleCityState } from './BattleCity.state';
 import styles from './BattleCity.module.scss';
@@ -27,15 +28,12 @@ const BattleCity: FC = () => {
 export default BattleCity;
 
 // todo: remove after having proper state management
-const addItemsToState = (state: Readonly<BattleCityState>, items: GridObject[]): Readonly<BattleCityState> => ({
-  ...state,
-  grid: {
-    gridObjects: [
-      ...state.grid.gridObjects,
-      ...items
-    ]
-  }
-});
+
+const addItemsToState = (state: Readonly<BattleCityState>, items: GridObject[]): Readonly<BattleCityState> => {
+  return produce(state, (draft) => {
+    draft.grid.gridObjects = [...draft.grid.gridObjects, ...items];
+  });
+};
 
 const getNewItems = (count: number, start = 0): GridObject[] => Array.from({ length: count }, (item, ind) => {
   const type = getRandomBoolean() ? 'gerb' : 'explosion';
