@@ -1,20 +1,17 @@
 .Explosion {
+  --explosion-bg-x: calc(0px - var(--bg-double-block-size) * 16);
+  --explosion-bg-y: calc(0px - var(--bg-double-block-size) * 8);
+
   width: var(--double-block-size);
   height: var(--double-block-size);
-  background: center / contain;
-  animation: explosion 2s forwards;
+  background: black url("../../assets/images/sprite-big.png") no-repeat
+    /* background-position */ var(--explosion-bg-x) var(--explosion-bg-y);
+  background-size: var(--bg-sprite-size);
+  animation: explosion .8s steps(2) forwards;
 }
 
 @keyframes explosion {
-  0% {
-    background-image: url("../../assets/images/explosions/explosion_1.svg");
-  }
-
-  50% {
-    background-image: url("../../assets/images/explosions/explosion_2.svg");
-  }
-
-  100% {
-    background-image: url("../../assets/images/explosions/explosion_3.svg");
+  to {
+    background-position-x: calc(var(--explosion-bg-x) - calc(2 * var(--bg-double-block-size)));
   }
 }

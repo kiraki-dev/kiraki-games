@@ -3,6 +3,7 @@
   --block-size: calc(var(--unit-size) * 8);
   --double-block-size: calc(var(--block-size) * 2);
 
+  /* background units */
   --bg-unit-size: var(--unit-size);
   --bg-block-size: calc(var(--bg-unit-size) * 8);
   --bg-double-block-size: calc(var(--bg-block-size) * 2);
