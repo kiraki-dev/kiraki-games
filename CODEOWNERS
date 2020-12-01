@@ -1,8 +1,3 @@
-# global owners
-*                       @hakobpogh
-
-# react owners
-src/**/*.tsx?           @VahanSargsyan @hospogh
-
-# scss owners
-src/**/*.s?css          @hospogh
+# ci/cd owners
+.github/**/*       @hakobpogh
+tsconfig.json      @hakobpogh
