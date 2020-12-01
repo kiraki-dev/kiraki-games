@@ -1,0 +1,55 @@
+$directions: (up: 0, left: 2, down: 4, right: 6);
+$colors:
+  yellow 0 0,
+  white 8 0,
+  green 0 8,
+  red 8 8;
+
+@function getBgPosition($spritePosition) {
+  @return calc(0px - var(--bg-double-block-size) * #{$spritePosition});
+}
+
+@mixin generateTankStyleVariables {
+  @each $dir, $dirX in $directions {
+    &[data-tank-direction=#{$dir}] {
+      --tank-direction: #{$dirX};
+    }
+  }
+  @each $color, $colorX, $colorY in $colors {
+    &[data-tank-color=#{$color}] {
+      --tank-color-x: #{$colorX};
+      --tank-color-y: #{$colorY};
+    }
+  }
+  @for $type from 1 to 8 {
+    &[data-tank-type="tank-type-#{$type}"] {
+      --tank-type: calc(#{$type} - 1);
+    }
+  }
+}
+
+.Tank {
+  @include generateTankStyleVariables();
+
+  --sprite-tank-x: calc(var(--tank-color-x) + var(--tank-direction));
+  --sprite-tank-y: calc(var(--tank-color-y) + var(--tank-type));
+
+  background-image: url(../../assets/images/sprite-big.png);
+  background-size: var(--bg-sprite-size);
+  background-repeat: no-repeat;
+  background-position-x: getBgPosition(var(--sprite-tank-x));
+  background-position-y:  getBgPosition(var(--sprite-tank-y));
+
+  height: var(--double-block-size);
+  width: var(--double-block-size);
+
+  &.isMoving {
+    animation: movement .2s steps(2) infinite both;
+  }
+}
+
+@keyframes movement {
+  to {
+    background-position-x: getBgPosition(calc(var(--sprite-tank-x) + 2));
+  }
+}

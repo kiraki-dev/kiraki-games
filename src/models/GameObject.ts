@@ -1,4 +1,4 @@
-export type GameObjectType = 'gerb' | 'explosion';
+export type GameObjectType = 'gerb' | 'explosion' | 'tank';
 
 export class GameObjectPosition {
   constructor (readonly x: number, readonly y: number) {}
