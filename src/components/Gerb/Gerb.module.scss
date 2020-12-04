@@ -1,4 +1,20 @@
 .Gerb {
+  --gerb-bg-x: calc(0px - var(--bg-double-block-size) * 38);
+  --gerb-bg-y: calc(0px - var(--bg-double-block-size) * 4);
+
   width: var(--double-block-size);
   height: var(--double-block-size);
+  background: black url("../../assets/images/sprite-big.png") no-repeat
+    /* background-position */ var(--gerb-bg-x) var(--gerb-bg-y);
+  background-size: var(--bg-sprite-size);
+}
+
+.Standing {
+  --gerb-bg-x: calc(0px - var(--bg-double-block-size) * 19);
+  --gerb-bg-y: calc(0px - var(--bg-double-block-size) * 2);
+}
+
+.Destroyed {
+  --gerb-bg-x: calc(0px - var(--bg-double-block-size) * 20);
+  --gerb-bg-y: calc(0px - var(--bg-double-block-size) * 2);
 }
