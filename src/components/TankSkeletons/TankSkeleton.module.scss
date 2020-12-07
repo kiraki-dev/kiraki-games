@@ -1,19 +1,19 @@
 .TankSkeleton {
+  --tank-skeleton-bg-x: calc(0px - var(--bg-double-block-size) * 40);
+  --tank-skeleton-bg-y: calc(0px - var(--bg-double-block-size) * 24);
   width: var(--block-size);
   height: var(--block-size);
+  background: black url("../../assets/images/sprite-big.png") no-repeat
+  /* background-position */var(--tank-skeleton-bg-x) var(--tank-skeleton-bg-y);
   background-size: var(--bg-sprite-size);
 }
 
 .EnemyTankSkeleton {
-  --enemy-tank-skeleton-bg-x: calc(0px - var(--bg-double-block-size) * 40);
-  --enemy-tank-skeleton-bg-y: calc(0px - var(--bg-double-block-size) * 24);
-  background: black url("../../assets/images/sprite-big.png") no-repeat
-              var(--enemy-tank-skeleton-bg-x) var(--enemy-tank-skeleton-bg-y);
+  --tank-skeleton-bg-x: calc(0px - var(--bg-double-block-size) * 20);
+  --tank-skeleton-bg-y: calc(0px - var(--bg-double-block-size) * 12);
 }
 
 .AllyTankSkeleton {
-  --enemy-tank-skeleton-bg-x: calc(0px - var(--bg-double-block-size) * 47);
-  --enemy-tank-skeleton-bg-y: calc(0px - var(--bg-double-block-size) * 18);
-  background: black url("../../assets/images/sprite-big.png") no-repeat
-  var(--enemy-tank-skeleton-bg-x) var(--enemy-tank-skeleton-bg-y);
+  --tank-skeleton-bg-x: calc(0px - var(--bg-block-size) * 47);
+  --tank-skeleton-bg-y: calc(0px - var(--bg-block-size) * 18);
 }
