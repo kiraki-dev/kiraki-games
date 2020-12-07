@@ -2,18 +2,18 @@ import React, { FC } from 'react';
 import Gerb from '../Gerb';
 import Explosion from '../explosions/Explosion';
 import { GridObjectContext } from './Grid.helpers';
-import { GridObject, GridObjectType } from '../../viewModels/GridObject';
+import { GameObject, GameObjectType } from '../../models/GameObject';
 
-const GRID_OBJECT_COMPONENTS: Record<GridObjectType, FC> = {
+const GRID_OBJECT_COMPONENTS: Record<GameObjectType, FC> = {
   gerb: Gerb,
   explosion: Explosion
 };
 
-const GridObjectView: FC<GridObject> = (gridObject: GridObject) => {
-  const ObjectComponent = GRID_OBJECT_COMPONENTS[gridObject.type];
+const GridObjectView: FC<GameObject<unknown>> = (object: GameObject<unknown>) => {
+  const ObjectComponent = GRID_OBJECT_COMPONENTS[object.objectType];
 
   return (
-    <GridObjectContext.Provider value={gridObject}>
+    <GridObjectContext.Provider value={object}>
       <ObjectComponent />
     </GridObjectContext.Provider>
   );
