@@ -4,7 +4,8 @@ import { useGridObjectState } from '../Grid/Grid.helpers';
 
 const AllyTankSkeleton: FC = () => {
   const [, inlineStyles] = useGridObjectState<undefined>();
-  return <div style={inlineStyles} className={[styles.AllyTankSkeleton, styles.TankSkeleton].join(' ')} />;
+  const classes = [styles.TankSkeleton, styles.AllyTankSkeleton].join(' ');
+  return <div style={inlineStyles} className={classes} />;
 };
 
 export default AllyTankSkeleton;
