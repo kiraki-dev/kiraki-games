@@ -1,5 +1,5 @@
-import { GridObject } from '../../viewModels/GridObject';
+import { GameObject } from '../../models/GameObject';
 
 export interface GridState {
-  gridObjects: GridObject[];
+  objects: GameObject<unknown>[];
 }

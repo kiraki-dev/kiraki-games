@@ -1,22 +1,22 @@
 import { createContext, CSSProperties, useContext } from 'react';
 import { numberToCssBlock } from '../../utils/html-helpers';
-import { GridObject, GridObjectPosition, GridObjectState } from '../../viewModels/GridObject';
+import { GameObject, GameObjectPosition } from '../../models/GameObject';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const GridObjectContext = createContext<GridObject | null>(null);
+export const GridObjectContext = createContext<GameObject<unknown> | null>(null);
 
-export const useGridObjectState = <T extends GridObjectState>(): [T, CSSProperties] => {
-  const gridObject = useContext(GridObjectContext);
+export const useGridObjectState = <T extends unknown>(): [T, CSSProperties] => {
+  const obj = useContext(GridObjectContext);
 
-  if (!gridObject) {
+  if (!obj) {
     throw new Error('Missing provider for GridObject');
   }
 
-  return [gridObject.state as T, getPositionStyles(gridObject.position)];
+  return [obj.state as T, getPositionStyles(obj.position)];
 };
 
-const getPositionStyles = (location: GridObjectPosition): CSSProperties => {
-  const translate = `translate(${numberToCssBlock(location.x)}, ${numberToCssBlock(location.y)})`;
+const getPositionStyles = (position: GameObjectPosition): CSSProperties => {
+  const translate = `translate(${numberToCssBlock(position.x)}, ${numberToCssBlock(position.y)})`;
   return {
     transform: translate
   };

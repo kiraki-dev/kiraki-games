@@ -3,14 +3,14 @@ import produce from 'immer';
 import Grid from '../Grid/Grid';
 import { BattleCityState } from './BattleCity.state';
 import styles from './BattleCity.module.scss';
-import { GridObject, GridObjectPosition } from '../../viewModels/GridObject';
+import { GameObject, GameObjectPosition } from '../../models/GameObject';
 
 const INITIAL_COUNT = 20;
 
 const defaultState: Readonly<BattleCityState> = {
   isPaused: false,
   grid: {
-    gridObjects: []
+    objects: []
   },
   upcomingEnemies: 5
 };
@@ -29,19 +29,19 @@ export default BattleCity;
 
 // todo: remove after having proper state management
 
-const addItemsToState = (state: Readonly<BattleCityState>, items: GridObject[]): Readonly<BattleCityState> => {
+const addItemsToState = (state: Readonly<BattleCityState>, items: GameObject<unknown>[]): Readonly<BattleCityState> => {
   return produce(state, (draft) => {
-    draft.grid.gridObjects = [...draft.grid.gridObjects, ...items];
+    draft.grid.objects = [...draft.grid.objects, ...items];
   });
 };
 
-const getNewItems = (count: number, start = 0): GridObject[] => Array.from({ length: count }, (item, ind) => {
+const getNewItems = (count: number, start = 0): GameObject<unknown>[] => Array.from({ length: count }, (item, ind) => {
   const type = getRandomBoolean() ? 'gerb' : 'explosion';
   const state = type === 'gerb' ? { isDestroyed: getRandomBoolean() } : undefined;
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-  const position = new GridObjectPosition(getRandomInt(30), getRandomInt(30));
+  const position = new GameObjectPosition(getRandomInt(30), getRandomInt(30));
 
-  return new GridObject(`${type}-${start + ind}`, type, position, state);
+  return new GameObject('', `${type}-${start + ind}`, type, position, state);
 });
 
 const getRandomInt = (max: number, min = 0): number => Math.floor(Math.random() * (max - min)) + min;

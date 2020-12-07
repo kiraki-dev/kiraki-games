@@ -18,8 +18,8 @@ const Grid: FC<GridProps> = (props: GridProps) => {
   return (
     <div ref={gridElRef} className={styles.Grid}>
       {
-        props.state.gridObjects.map((gridObject) => (
-          <GridObjectView key={gridObject.id} {...gridObject} />
+        props.state.objects.map((obj) => (
+          <GridObjectView key={obj.objectId} {...obj} />
         ))
       }
     </div>
