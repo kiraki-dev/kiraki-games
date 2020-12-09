@@ -1,6 +1,11 @@
 import React, { FC } from 'react';
-import styles from './Spawn.module.scss';
+import classes from './Spawn.module.scss';
+import { useGridObjectState } from '../Grid/Grid.helpers';
 
-const Spawn: FC = () => <div className={styles.Spawn} />;
+const Spawn: FC = () => {
+  const [, inlineStyles] = useGridObjectState<undefined>();
+
+  return <div style={inlineStyles} className={classes.Spawn} />;
+};
 
 export default Spawn;
