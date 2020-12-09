@@ -1,36 +1,22 @@
 .Spawn {
+  --spawn-bg-x: calc(0px - var(--bg-double-block-size) * 16);
+  --spawn-bg-y: calc(0px - var(--bg-double-block-size) * 6);
+
   width: var(--double-block-size);
   height: var(--double-block-size);
-  background: center / contain;
-  animation: spawning 1s 3;
+  background: black url("../../assets/images/sprite-big.png") no-repeat
+    /* background-position */ var(--spawn-bg-x) var(--spawn-bg-y);
+  background-size: var(--bg-sprite-size);
+  animation: spawning .8s steps(3) forwards 3;
+
 }
 
 @keyframes spawning {
-  0% {
-    background-image: url("../../assets/images/other/spawn_animation_p1.svg");
-  }
-
-  17% {
-    background-image: url("../../assets/images/other/spawn_animation_p2.svg");
-  }
-
-  33% {
-    background-image: url("../../assets/images/other/spawn_animation_p3.svg");
-  }
-
   50% {
-    background-image: url("../../assets/images/other/spawn_animation_p4.svg");
-  }
-
-  67% {
-    background-image: url("../../assets/images/other/spawn_animation_p3.svg");
-  }
-
-  83% {
-    background-image: url("../../assets/images/other/spawn_animation_p2.svg");
+    background-position-x: calc(var(--spawn-bg-x) - calc(3 * var(--bg-double-block-size)));
   }
 
   100% {
-    background-image: url("../../assets/images/other/spawn_animation_p1.svg");
+    background-position-x: var(--spawn-bg-x);
   }
 }
