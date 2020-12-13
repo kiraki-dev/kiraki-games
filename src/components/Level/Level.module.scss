@@ -2,9 +2,15 @@
   display: flex;
   flex-direction: column;
 
-  img {
-    height: var(--double-block-size);
+  .Img {
+    --level-bg-x: calc(0px - var(--bg-block-size) * 47);
+    --level-bg-y: calc(0px - var(--bg-block-size) * 23);
+
     width: var(--double-block-size);
+    height: var(--double-block-size);
+    background: black url("../../assets/images/sprite-big.png") no-repeat
+      /* background-position */ var(--level-bg-x) var(--level-bg-y);
+    background-size: var(--bg-sprite-size);
   }
 
   div {
