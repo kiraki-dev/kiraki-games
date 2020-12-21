@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 
 import style from './ConcreteWall.module.scss';
-import concrete from '../../../assets/images/walls/wall_2.svg';
+import { useGridObjectState } from '../../Grid/Grid.helpers';
 
-const ConcreteWall: FC = () => <img src={concrete} className={style.Concrete} alt="concrete" />;
+const ConcreteWall: FC = () => {
+  const [, inlineStyles] = useGridObjectState<undefined>();
+  return <div style={inlineStyles} className={style.Concrete} />;
+};
 
 export default ConcreteWall;

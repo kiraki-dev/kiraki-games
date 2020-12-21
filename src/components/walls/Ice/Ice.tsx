@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 
 import style from './Ice.module.scss';
-import ice from '../../../assets/images/walls/wall_4.svg';
+import { useGridObjectState } from '../../Grid/Grid.helpers';
 
-const Ice: FC = () => <img src={ice} className={style.Ice} alt="ice" />;
+const Ice: FC = () => {
+  const [, inlineStyles] = useGridObjectState<undefined>();
+  return <div style={inlineStyles} className={style.Ice} />;
+};
 
 export default Ice;

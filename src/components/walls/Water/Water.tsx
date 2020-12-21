@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 
 import style from './Water.module.scss';
-import waterSvg from '../../../assets/images/walls/wall_5.svg';
+import { useGridObjectState } from '../../Grid/Grid.helpers';
 
-const Water: FC = () => <img src={waterSvg} className={style.Water} alt="water" />;
+const Water: FC = () => {
+  const [, inlineStyles] = useGridObjectState<undefined>();
+  return <div style={inlineStyles} className={style.Water} />;
+};
 
 export default Water;

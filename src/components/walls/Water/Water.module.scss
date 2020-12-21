@@ -1,4 +1,9 @@
 .Water {
+  --water-bg-x: calc(0px - var(--bg-block-size) * 34);
+  --water-bg-y: calc(0px - var(--bg-block-size) * 10);
   width: var(--block-size);
   height: var(--block-size);
+  background: black url("../../../assets/images/sprite-big.png") no-repeat
+    /* background-position */var(--water-bg-x) var(--water-bg-y);
+  background-size: var(--bg-sprite-size);
 }

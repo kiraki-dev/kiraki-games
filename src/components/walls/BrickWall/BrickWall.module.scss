@@ -1,4 +1,9 @@
 .Brick {
+  --brick-wall-bg-x: calc(0px - var(--bg-block-size) * 32);
+  --brick-wall-bg-y: calc(0px - var(--bg-block-size) * 8);
   width: var(--block-size);
   height: var(--block-size);
+  background: black url("../../../assets/images/sprite-big.png") no-repeat
+    /* background-position */var(--brick-wall-bg-x) var(--brick-wall-bg-y);
+  background-size: var(--bg-sprite-size);
 }
