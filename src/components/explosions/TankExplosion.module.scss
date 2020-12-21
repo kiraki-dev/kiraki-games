@@ -1,16 +1,17 @@
 .TankExplosion {
-  width: var(--double-block-size);
-  height: var(--double-block-size);
-  background: center / contain;
-  animation: tankExplosion 2s;
+  --tank-explosion-bg-x: calc(0px - var(--bg-double-block-size) * 19);
+  --tank-explosion-bg-y: calc(0px - var(--bg-double-block-size) * 8);
+
+  width: calc(2 * var(--double-block-size));
+  height: calc(2 * var(--double-block-size));
+  background: black url("../../assets/images/sprite-big.png") no-repeat
+    /* background-position */ var(--tank-explosion-bg-x) var(--tank-explosion-bg-y);
+  background-size: var(--bg-sprite-size);
+  animation: tankExplosion .2s steps(1) forwards;
 }
 
 @keyframes tankExplosion {
-  0% {
-    background-image: url("../../assets/images/explosions/tank_explosion_1.svg");
-  }
-
-  100% {
-    background-image: url("../../assets/images/explosions/tank_explosion_2.svg");
+  to {
+    background-position-x: calc(var(--tank-explosion-bg-x) - calc(2 * var(--bg-double-block-size)));
   }
 }

@@ -7,7 +7,7 @@
   background: black url("../../assets/images/sprite-big.png") no-repeat
     /* background-position */ var(--explosion-bg-x) var(--explosion-bg-y);
   background-size: var(--bg-sprite-size);
-  animation: explosion .8s steps(2) forwards;
+  animation: explosion .8s steps(1) forwards;
 }
 
 @keyframes explosion {
