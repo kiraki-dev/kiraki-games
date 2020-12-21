@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 
 import style from './Forest.module.scss';
-import forest from '../../../assets/images/walls/wall_3.svg';
+import { useGridObjectState } from '../../Grid/Grid.helpers';
 
-const Forest: FC = () => <img src={forest} className={style.Forest} alt="forest" />;
+const Forest: FC = () => {
+  const [, inlineStyles] = useGridObjectState<undefined>();
+  return <div style={inlineStyles} className={style.Forest} />;
+};
 
 export default Forest;

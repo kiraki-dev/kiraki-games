@@ -1,4 +1,9 @@
 .Concrete {
+  --concrete-wall-bg-x: calc(0px - var(--bg-block-size) * 32);
+  --concrete-wall-bg-y: calc(0px - var(--bg-block-size) * 9);
   width: var(--block-size);
   height: var(--block-size);
+  background: black url("../../../assets/images/sprite-big.png") no-repeat
+    /* background-position */var(--concrete-wall-bg-x) var(--concrete-wall-bg-y);
+  background-size: var(--bg-sprite-size);
 }

@@ -1,4 +1,9 @@
 .Forest {
+  --forest-bg-x: calc(0px - var(--bg-block-size) * 33);
+  --forest-bg-y: calc(0px - var(--bg-block-size) * 8);
   width: var(--block-size);
   height: var(--block-size);
+  background: black url("../../../assets/images/sprite-big.png") no-repeat
+    /* background-position */var(--forest-bg-x) var(--forest-bg-y);
+  background-size: var(--bg-sprite-size);
 }

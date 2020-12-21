@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 
 import style from './BrickWall.module.scss';
-import brick from '../../../assets/images/walls/wall_1.svg';
+import { useGridObjectState } from '../../Grid/Grid.helpers';
 
-const BrickWall: FC = () => <img src={brick} className={style.Brick} alt="brick" />;
+const BrickWall: FC = () => {
+  const [, inlineStyles] = useGridObjectState<undefined>();
+  return <div style={inlineStyles} className={style.Brick} />;
+};
 
 export default BrickWall;
