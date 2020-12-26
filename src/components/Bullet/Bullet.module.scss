@@ -1,0 +1,29 @@
+.Bullet {
+  --bullet-bg-x: calc(0px - var(--unit-size) * 322);
+  --bullet-bg-y: calc(0px - var(--unit-size) * 102);
+  width: calc(4 * var(--unit-size));
+  height: calc(4 * var(--unit-size));
+  background: black url("../../assets/images/sprite-big.png") no-repeat
+    /* background-position */var(--bullet-bg-x) var(--bullet-bg-y);
+  background-size: var(--bg-sprite-size);
+
+  &.Bullet.up {
+    --bullet-bg-x: calc(0px - var(--unit-size) * 322);
+    --bullet-bg-y: calc(0px - var(--unit-size) * 102);
+  }
+
+  &.Bullet.right {
+    --bullet-bg-x: calc(0px - var(--unit-size) * 346);
+    --bullet-bg-y: calc(0px - var(--unit-size) * 102);
+  }
+
+  &.Bullet.down {
+    --bullet-bg-x: calc(0px - var(--unit-size) * 338);
+    --bullet-bg-y: calc(0px - var(--unit-size) * 102);
+  }
+
+  &.Bullet.left {
+    --bullet-bg-x: calc(0px - var(--unit-size) * 330);
+    --bullet-bg-y: calc(0px - var(--unit-size) * 102);
+  }
+}
